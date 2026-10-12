@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our 4th Love Anniversary ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #ff1744;
+    --dark-red: #8b001b;
+    --black: #080808;
+    --white: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 18px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.page.active {
+    display: flex;
+    animation: fadeIn .8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: clamp(2rem, 7vw, 3.3rem);
+    color: var(--red);
+    margin-bottom: 18px;
+}
+
+h2 {
+    color: #ff8097;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.9;
+}
+
+.script {
+    font-family: 'Great Vibes', cursive;
+    color: #ff8097;
+    font-size: clamp(2.5rem, 9vw, 4.5rem);
+}
+
+.btn {
+    background: linear-gradient(135deg, #ff1744, #9b0025);
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    margin: 10px 5px;
+    box-shadow: 0 0 18px #ff174455;
+    transition: .3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 28px #ff1744;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--red);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 25px;
+    margin: 8px;
+}
+
+input {
+    background: #161616;
+    color: white;
+    border: 1px solid #ff1744;
+    border-radius: 25px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    width: min(290px, 90%);
+    text-align: center;
+    margin: 15px 0;
+    outline: none;
+}
+
+.small-text {
+    font-size: .88rem;
+    color: #c9c9c9;
+}
+
+.glow {
+    text-shadow: 0 0 15px #ff1744;
+}
+
+.heart {
+    color: var(--red);
+    animation: heartbeat 1.2s infinite;
+    display: inline-block;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.2); }
+}
+
+/* Floating hearts */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #ff1744;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatUp 8s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Password page */
+.password-card {
+    width: min(420px, 100%);
+    padding: 30px 20px;
+    border: 1px solid #6e1027;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #18070b, #080808);
+    box-shadow: 0 0 35px #ff174422;
+    position: relative;
+    z-index: 2;
+}
+
+/* Main content cards */
+.content-card {
+    width: min(650px, 100%);
+    padding: 25px 20px;
+    background: #11090b;
+    border: 1px solid #5b1726;
+    border-radius: 22px;
+    margin: 12px auto;
+    line-height: 1.9;
+}
+
+.story-list {
+    width: min(650px, 100%);
+    text-align: left;
+}
+
+.story-item {
+    padding: 16px;
+    margin: 12px 0;
+    background: #130a0c;
+    border-left: 3px solid var(--red);
+    border-radius: 8px;
+}
+
+.story-item h3 {
+    color: #ff708b;
+    margin-bottom: 6px;
+}
+
+/* Heart-shaped memory gallery */
+.memory-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.heart-gallery {
+    width: min(94vw, 410px);
+    height: min(105vw, 455px);
+    max-height: 455px;
+    position: relative;
+    margin: 20px auto 30px;
+}
+
+.heart-gallery img {
+    position: absolute;
+    width: 27%;
+    height: 24%;
+    object-fit: cover;
+    border: 3px solid #ff3154;
+    border-radius: 12px;
+    box-shadow: 0 0 14px #ff174455;
+    background: #1a1113;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.heart-gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 24px #ff1744;
+    z-index: 5;
+}
+
+/* Top two curves */
+.p1  { left: 20%; top: 4%; }
+.p2  { left: 53%; top: 4%; }
+
+/* Upper-middle */
+.p3  { left: 4%;  top: 24%; }
+.p4  { left: 36.5%; top: 24%; }
+.p5  { left: 69%; top: 24%; }
+
+/* Middle-lower */
+.p6  { left: 12%; top: 44%; }
+.p7  { left: 61%; top: 44%; }
+
+/* Tapering toward the heart point */
+.p8  { left: 25%; top: 64%; }
+.p9  { left: 49%; top: 64%; }
+.p10 { left: 37%; top: 76%; height: 19% !important; }
+
+.forever {
+    font-family: 'Great Vibes', cursive;
+    color: #ff8097;
+    font-size: 2.5rem;
+    margin: 15px 0;
+}
+
+/* Photo captions */
+.caption {
+    font-size: .9rem;
+    color: #e5b8c0;
+}
+
+/* Love letter */
+.letter {
+    max-width: 650px;
+    background: linear-gradient(145deg, #210911, #0d0809);
+    padding: 27px 22px;
+    border: 1px solid #a31535;
+    border-radius: 18px;
+    text-align: left;
+    line-height: 2;
+}
+
+/* Progress */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--red);
+    width: 0%;
+    z-index: 20;
+    transition: width .4s;
+}
+
+/* Final page */
+.final-heart {
+    font-size: 5rem;
+    animation: heartbeat 1.2s infinite;
+}
+
+#musicPanel {
+    position: fixed;
+    bottom: 12px;
+    right: 10px;
+    z-index: 100;
+    display: none;
+}
+
+#musicPanel button {
+    border: 1px solid #ff1744;
+    border-radius: 25px;
+    color: white;
+    background: #19090e;
+    padding: 10px 14px;
+    font-size: .85rem;
+}
+
+#musicFrame {
+    position: fixed;
+    width: 280px;
+    height: 158px;
+    right: 10px;
+    bottom: 60px;
+    z-index: 99;
+    border: 1px solid #ff1744;
+    border-radius: 12px;
+    display: none;
+    background: black;
+}
+
+#message {
+    color: #ff9caf;
+    min-height: 24px;
+    margin: 8px 0;
+}
+
+footer {
+    color: #aaa;
+    font-size: .8rem;
+    margin-top: 22px;
+}
+
+@media (max-width: 380px) {
+    .heart-gallery img {
+        border-width: 2px;
+        border-radius: 8px;
+    }
+
+    .page {
+        padding: 30px 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- MUSIC PLAYER: remains active between pages -->
+<iframe
+    id="musicFrame"
+    title="Anniversary music"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+
+<div id="musicPanel">
+    <button onclick="toggleMusicPanel()">🎵 Music</button>
+</div>
+
+<!-- PAGE 1: PASSWORD -->
+<section class="page active" id="page1">
+    <div class="password-card">
+        <div style="font-size:3.5rem">❤️🔐</div>
+        <h1 class="glow">Hey, My Love!</h1>
+        <p>Our beautiful story has a little secret.</p>
+        <p class="small-text">Only my favourite person knows the password. 💌</p>
+
+        <form id="passwordForm">
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter our secret password"
+                autocomplete="off"
+                required>
+
+            <br>
+
+            <button type="submit" class="btn">Unlock My Heart ❤️</button>
+        </form>
+
+        <p id="message"></p>
+        <p class="small-text">A little surprise made only for you ♾️</p>
+    </div>
+</section>
+
+<!-- PAGE 2: WELCOME -->
+<section class="page" id="page2">
+    <p class="script">To my forever person...</p>
+    <h1>Happy 4th Love Anniversary!</h1>
+
+    <div style="font-size:4rem" class="heart">❤️</div>
+
+    <div class="content-card">
+        <p>
+            Four years of memories, laughter, silly fights, little surprises,
+            countless conversations and a love that keeps growing.
+        </p>
+        <p>
+            Every moment with you has become a beautiful part of my life.
+            This little website is my way of saying that I would choose you
+            again and again.
+        </p>
+        <p class="script">I love you, Darshu! ❤️</p>
+    </div>
+
+    <button class="btn" onclick="showPage(3)">Open Your Surprise 💌</button>
+</section>
+
+<!-- PAGE 3: LOVE LETTER -->
+<section class="page" id="page3">
+    <h1>A Letter From My Heart 💌</h1>
+
+    <div class="letter">
+        <p class="script">My dearest Darshu,</p>
+
+        <p>
+            Four years ago, we began creating a story that belongs only to us.
+            Since then, you have become part of my happiest memories,
+            my favourite conversations and my most precious moments.
+        </p>
+
+        <p>
+            I love the little things about us—the way we hold hands,
+            the memories we collect, the way we laugh, and even the silly
+            arguments that end with us talking again.
+        </p>
+
+        <p>
+            Our journey has not always been perfect, but it is ours.
+            I don't need every day to be perfect. I only hope that we keep
+            understanding each other, choosing each other and growing together.
+        </p>
+
+        <p>
+            Thank you for being part of my life and for giving me memories
+            I want to keep forever.
+        </p>
+
+        <p class="script" style="text-align:right">
+            Always yours, ❤️
+        </p>
+    </div>
+
+    <button class="btn" onclick="showPage(4)">Our Story Together 📖</button>
+</section>
+
+<!-- PAGE 4: JOURNEY -->
+<section class="page" id="page4">
+    <h1>Our Little Journey ❤️</h1>
+    <p class="caption">Every memory has a place in my heart.</p>
+
+    <div class="story-list">
+        <div class="story-item">
+            <h3>🛕 Bangalore ISKCON Temple</h3>
+            <p>A beautiful place and another memory in our journey together.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>🍽️ Our Lunch Date</h3>
+            <p>Simple moments together that became special memories.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>💞 Near National College</h3>
+            <p>One more little place that reminds me of us.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>🌊 Hesaragatta Lake</h3>
+            <p>The water, the view and the moments we shared.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>🎬  Movie Theatre</h3>
+            <p>A movie memory that became part of our story.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>💍 Our Proposal</h3>
+            <p>A moment that made our love story even more special.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>🤗 Our Romance</h3>
+            <p>Little gestures, holding hands and feeling close to each other.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>🎢 Wonderla</h3>
+            <p>Fun, excitement and another adventure together.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>🥹 Our Fights & Conversations</h3>
+            <p>We may disagree sometimes, but our conversations and efforts matter.</p>
+        </div>
+
+        <div class="story-item">
+            <h3>♾️ Our Forever</h3>
+            <p>The story continues, and there are so many memories still waiting for us.</p>
+        </div>
+    </div>
+
+    <button class="btn" onclick="showPage(5)">See Our Photo Heart 💗</button>
+</section>
+
+<!-- PAGE 5: HEART PHOTO GALLERY -->
+<section class="page" id="page5">
+    <div class="memory-section">
+        <h1>Our Memories ❤️</h1>
+        <p class="caption">Ten little windows into our love story.</p>
+
+        <div class="heart-gallery">
+
+            <!-- Replace these filenames with your actual photo filenames.
+                 Keep your photos in the images folder. -->
+
+            <img src="hema.jpeg" class="p1">
+          
+            <img src="WhatsApp Image 2026-10-12 at 7.32.08 PM.jpeg" class="p2">
+                
+            <img src="WhatsApp Image 2026-10-12 at 7.32.10 PM.jpeg" class="p3">
+              
+            <img src="WhatsApp Image 2026-10-12 at 7.32.50 PM.jpeg" class="p4">
+                
+            <img src="WhatsApp Image 2026-10-12 at 7.32.52 PM.jpeg" class="p5">
+                 
+            <img src="WhatsApp Image 2026-10-12 at 7.32.52 PM.jpeg" class="p6">
+
+            <img src="WhatsApp Image 2026-10-12 at 7.32.10 PM.jpeg" class="p7">
+
+           <img src="hema.jpeg" class="p8">
+
+
+                
+        </div>
+
+        <p class="forever">You & Me, Forever ♾️</p>
+
+        <p>
+            Different moments, different days, one beautiful story:
+            <span style="color:#ff5275">ours.</span>
+        </p>
+    </div>
+
+    <button class="btn" onclick="showPage(6)">One Last Surprise 🎁</button>
+</section>
+
+<!-- PAGE 6: FINAL WISH -->
+<section class="page" id="page6">
+    <div class="final-heart">❤️</div>
+
+    <p class="script">Happy 4th Anniversary</p>
+    <h1>My Love, My Darshu!</h1>
+
+    <div class="content-card">
+        <p>
+            If I could keep only one thing from all these years,
+            I would keep the love and memories we have built together.
+        </p>
+
+        <p>
+            Thank you for every smile, every hug, every conversation
+            and every little moment that made our journey special.
+        </p>
+
+        <p>
+            May we continue to laugh together, learn together,
+            understand each other and create countless beautiful memories.
+        </p>
+
+        <p class="script">Four years down, forever to go. ❤️</p>
+
+        <h2>Always & Forever 🖤❤️</h2>
+    </div>
+
+    <button class="btn" onclick="celebrate()">Celebrate Our Love 🎆</button>
+    <button class="btn-outline" onclick="showPage(1)">Read Our Story Again ↺</button>
+    <button class="btn-outline" onclick="exitWebsite()">Exit ❤️</button>
+
+    <footer>Made with love, just for you. ❤️</footer>
+</section>
+
+<script>
+/* =========================================
+   PASSWORD
+========================================= */
+
+const SECRET_PASSWORD = "darling";
+let wrongAttempts = 0;
+let lockedUntil = 0;
+
+const passwordForm = document.getElementById("passwordForm");
+const passwordInput = document.getElementById("password");
+const message = document.getElementById("message");
+
+passwordForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (Date.now() < lockedUntil) {
+        const seconds = Math.ceil((lockedUntil - Date.now()) / 1000);
+        message.textContent = "Wait " + seconds + " seconds, my love ❤️";
+        return;
+    }
+
+    if (passwordInput.value.trim().toLowerCase() === SECRET_PASSWORD) {
+        message.textContent = "";
+        wrongAttempts = 0;
+
+        // Starts the music after the user's password-submit gesture.
+        startMusic();
+
+        showPage(2);
+    } else {
+        wrongAttempts++;
+        passwordInput.value = "";
+
+        if (wrongAttempts >= 3) {
+            lockedUntil = Date.now() + 10000;
+            wrongAttempts = 0;
+
+            let remaining = 10;
+            message.textContent =
+                "Wrong password! Try again in " + remaining + " seconds ❤️";
+
+            const countdown = setInterval(function() {
+                remaining--;
+
+                if (remaining <= 0) {
+                    clearInterval(countdown);
+                    message.textContent = "Okay, try again, my love ❤️";
+                    passwordInput.disabled = false;
+                } else {
+                    message.textContent =
+                        "Wrong password! Try again in " + remaining + " seconds ❤️";
+                }
+            }, 1000);
+
+            passwordInput.disabled = true;
+
+            setTimeout(function() {
+                passwordInput.disabled = false;
+            }, 10000);
+        } else {
+            message.textContent = "Not quite, darling! Try again ❤️";
+        }
+    }
+});
+
+/* =========================================
+   PAGE NAVIGATION
+========================================= */
+
+function showPage(pageNumber) {
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    const target = document.getElementById("page" + pageNumber);
+
+    if (target) {
+        target.classList.add("active");
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const progress = document.getElementById("progress");
+    progress.style.width = ((pageNumber - 1) / 5 * 100) + "%";
+
+    document.getElementById("musicPanel").style.display =
+        pageNumber === 1 ? "none" : "block";
+}
+
+/* =========================================
+   YOUTUBE MUSIC
+========================================= */
+
+const musicFrame = document.getElementById("musicFrame");
+let musicStarted = false;
+
+function startMusic() {
+    if (musicStarted) return;
+
+    musicStarted = true;
+
+    const videoID = "Rlem_rcRAOw";
+
+    musicFrame.src =
+        "https://www.youtube.com/embed/" + videoID +
+        "?autoplay=1&loop=1&playlist=" + videoID +
+        "&controls=1&playsinline=1&rel=0";
+
+    musicFrame.style.display = "block";
+    document.getElementById("musicPanel").style.display = "block";
+}
+
+function toggleMusicPanel() {
+    const isVisible = musicFrame.style.display === "block";
+
+    musicFrame.style.display = isVisible ? "none" : "block";
+}
+
+function exitWebsite() {
+    musicFrame.src = "about:blank";
+    musicFrame.style.display = "none";
+    document.getElementById("musicPanel").style.display = "none";
+    musicStarted = false;
+
+    showPage(1);
+    passwordInput.value = "";
+    message.textContent = "Our memories will always stay in my heart ❤️";
+}
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+function createFloatingHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.textContent = ["❤️", "💕", "💗", "💖"][Math.floor(Math.random() * 4)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (14 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createFloatingHeart, 650);
+
+/* =========================================
+   CELEBRATION
+========================================= */
+
+function celebrate() {
+    const emojis = ["❤️", "💖", "💕", "✨", "🎉", "💗", "🥰"];
+
+    for (let i = 0; i < 45; i++) {
+        setTimeout(function() {
+            const item = document.createElement("div");
+
+            item.className = "floating-heart";
+            item.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            item.style.left = Math.random() * 100 + "vw";
+            item.style.fontSize = (18 + Math.random() * 24) + "px";
+            item.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(item);
+
+            setTimeout(function() {
+                item.remove();
+            }, 6500);
+        }, i * 70);
+    }
+
+    alert("Happy 4th Love Anniversary! I love you, Darshu! ❤️♾️");
+}
+</script>
+
+</body>
+</html>
